@@ -10,11 +10,12 @@ import java.io.PrintWriter;
 
 
 @Controller
-public class MainPage {
+public class MainController {
 
     @RequestMapping("/")
     public String index(){
-        return "Index page";
+
+        return "index";
     }
 
     @RequestMapping("/hello")
