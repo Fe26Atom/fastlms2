@@ -1,4 +1,4 @@
-package com.zerobase.fastlms2.member;
+package com.zerobase.fastlms2.member.model;
 
 import lombok.Data;
 import lombok.ToString;
