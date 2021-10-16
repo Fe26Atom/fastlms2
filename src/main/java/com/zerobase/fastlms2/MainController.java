@@ -1,41 +1,25 @@
 package com.zerobase.fastlms2;
 
+import com.zerobase.fastlms2.components.MailComponents;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-
+@RequiredArgsConstructor
 @Controller
 public class MainController {
 
+    private final MailComponents mailComponent;
     @RequestMapping("/")
     public String index(){
 
+        String email = "ddpm00720@naver.com";
+        String subject = " 안녕하세요 제로베이스입니다. ";
+        String text = " <p>안녕하세요.</p> <p>제로베이스 입니다. 방갑습니다. </P>";
+
+        mailComponent.sendMail(email, subject, text);
+
         return "index";
-    }
-
-    @RequestMapping("/hello")
-    public void Hello(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        response.setContentType("text/html;charset=UTF-8");
-
-        PrintWriter printWriter = response.getWriter();
-
-        String msg = "<html>" +
-                "<head>" +
-                "<meta charset=\"UTF-8\">" +
-                "</head>" +
-                "<p>hello</p> <p>fastlms website!!!</p>"+
-                "<p> 안녕하세요!!! ===> </p>" +
-                "</body>" +
-                "</html>";
-
-       printWriter.write(msg);
-       printWriter.close();
     }
 }
 
