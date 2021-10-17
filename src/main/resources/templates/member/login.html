@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>회원 로그인</title>
@@ -8,6 +8,7 @@
 
 
     <h1>회원 로그인</h1>
+    <div th:replace="/fragments/layout.html :: fragment-body-menu"></div>
 
 
     <div th:text="${errorMessage}">
@@ -27,6 +28,9 @@
 
     </form>
 
+    <div>
+        <a href="/member/find/password">비밀번호 찾기</a>
+    </div>
 
 </body>
 </html>
